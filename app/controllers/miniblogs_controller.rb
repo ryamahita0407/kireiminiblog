@@ -1,0 +1,2 @@
+class MiniblogsController < ApplicationController
+end
