@@ -1,0 +1,2 @@
+class Miniblog < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+module MiniblogsHelper
+end
