@@ -1,0 +1,26 @@
+
+<div class="content">
+    <%# <% if user_signed_in? && current_user.id == miniblog.user_id %>
+        <ul class="miniblog-menu">
+            <li class="miniblog-menu-item">
+                <%= button_to '編集', root_path, class: "edit-btn" %>
+            </li>
+            <li class="miniblog-menu-item">
+                <%= button_to '削除', root_path, class: "delete-btn" %>
+            </li>
+        </ul>
+    <%# <% end %>
+    <p class="miniblog-nickname"><%= "ニックネーム" %></p>
+    <p class="miniblog-title"><%= "タイトル" %></p>
+    <div class="image-compare">
+        <div class="before">
+            <p>Before</p>
+            <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img", :size => '300x300' %>
+        </div>
+        <div class="after">
+            <p>After</p>
+            <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img", :size => '300x300' %>
+        </div>
+    </div>
+</div>
+
