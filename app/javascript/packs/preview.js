@@ -12,8 +12,8 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
         blobImage.setAttribute('src', blob);
         
         const inputHTML = document.createElement('input')
-        inputHTML.setAttribute('id', `message_image_${imageElementNum}`)
-        inputHTML.setAttribute('name', 'message[images][]')
+        inputHTML.setAttribute('id', `miniblog_image_${imageElementNum}`)
+        inputHTML.setAttribute('name', 'miniblog[images][]')
         inputHTML.setAttribute('type', 'file')
 
         imageElement.appendChild(blobImage);
