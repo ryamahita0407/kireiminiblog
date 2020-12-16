@@ -1,10 +1,12 @@
 /* 背景画像 */
 .background{
-  height: 100vh;
   background-size: cover;
 }
 /* 背景画像end */
 /* devise */
+.contents{
+  height: 100vh;
+}
 .new_user{
   display: flex;
   justify-content: center;
@@ -78,11 +80,12 @@ label[for=user_remember_me]{
 .content{
   margin-left : auto ; 
   margin-right : auto ;
-  margin-top: 30px;
+  margin-top: 10px;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   width: 60vw;
   background-color: #FFFFEE;
+  padding-bottom: 10px;
 }
 .miniblog-nickname{
   margin-left: 70px;
@@ -103,7 +106,7 @@ label[for=user_remember_me]{
   }
 .miniblog-menu-item{
   margin-right: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
   }
 .menu-item-btn{
   border-radius: 5px;
@@ -119,6 +122,9 @@ label[for=user_remember_me]{
   justify-content: center;
   text-align: center;
 }
+.image-compare img{
+  margin-left: 20px;
+}
 .before{
   margin-right: 100px;
 }
@@ -126,14 +132,23 @@ label[for=user_remember_me]{
   border-radius: 5px;
   border: 1px solid #808080;
   width: 50px;
-  height: 32px;
+  height: 25px;
   }
 .edit-btn{
   border-radius: 5px;
   border: 1px solid #808080;
   width: 50px;
-  height: 32px;
+  height: 25px;
   }
+  .pagination{
+    margin-top: 10px;
+    height: 40px;
+    text-align: center;
+  }
+.pagination span{
+  height: 20px;
+  font-size: 20px;
+}
 /* miniblogend */
 /* 投稿フォーム */
 h3{
@@ -151,6 +166,9 @@ textarea{
   border-radius: 5px;
   font-size: 16px;
   }
+.miniblog-new{
+  height: 100vh;
+}
 .miniblog-new-form{
   display: flex;
   justify-content: center;

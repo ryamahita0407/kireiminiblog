@@ -1,7 +1,7 @@
 class MiniblogsController < ApplicationController
   before_action :move_to_index, except: [:index]
   def index
-    
+    @miniblogs = Miniblog.includes(:user).order("created_at DESC").page(params[:page]).per(4)
   end
 
   def new
@@ -10,6 +10,7 @@ class MiniblogsController < ApplicationController
 
   def create
     @miniblog = Miniblog.new(miniblog_params)
+    binding.pry
     if @miniblog.valid?
       @miniblog.save
       redirect_to root_path
@@ -20,7 +21,7 @@ class MiniblogsController < ApplicationController
 
   private
   def miniblog_params
-    params.require(:miniblog).permit(:title, :text, images: []).merge(user_id: current_user.id).merge(user_id: current_user.id)
+    params.require(:miniblog).permit(:title, :text, images: []).merge(user_id: current_user.id)
   end
 
   def move_to_index
