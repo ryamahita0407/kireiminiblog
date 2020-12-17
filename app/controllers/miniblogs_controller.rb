@@ -19,6 +19,10 @@ class MiniblogsController < ApplicationController
     end
   end
 
+  def show
+    @miniblog = Miniblog.find(params[:id])
+  end
+
   private
   def miniblog_params
     params.require(:miniblog).permit(:title, :text, images: []).merge(user_id: current_user.id)

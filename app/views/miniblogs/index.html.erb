@@ -3,6 +3,9 @@
         <% if user_signed_in? && current_user.id == miniblog.user_id %>
             <ul class="miniblog-menu">
                 <li class="miniblog-menu-item">
+                    <%= button_to '詳細', miniblog_path(miniblog.id), class: "edit-btn", method: :get %>
+                </li>
+                <li class="miniblog-menu-item">
                     <%= button_to '編集', root_path, class: "edit-btn" %>
                 </li>
                 <li class="miniblog-menu-item">
