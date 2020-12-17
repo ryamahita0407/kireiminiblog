@@ -1,0 +1,35 @@
+<div class="content-show">
+    <% if user_signed_in? && current_user.id == @miniblog.user_id %>
+        <ul class="miniblog-menu">
+            <li class="miniblog-menu-item">
+                <%= button_to '編集', root_path, class: "edit-btn" %>
+            </li>
+            <li class="miniblog-menu-item">
+                <%= button_to '削除', root_path, class: "delete-btn" %>
+            </li>
+        </ul>
+    <% end %>
+    <p class="miniblog-nickname-info">投稿者</p>
+    <p class="miniblog-nickname"><%= @miniblog.user.nickname %></p>
+    <p class="miniblog-title-info">タイトル</p>
+    <p class="miniblog-title"><%= @miniblog.title %></p>
+    <div class="image-compare">
+        <% @miniblog.images.each do |image| %>
+            <%= image_tag image.variant(resize: "400x400"), class: 'images' %>
+        <% end %>
+    </div>
+    <div class="miniblog-text">
+      <p>テキスト</p>
+      <%= @miniblog.text %>
+    </div>
+</div>
+<div class="comments-space">
+    <div class="comments">
+        <ul>
+            <li>コメント</li>
+        </ul>
+    </div>
+</div>
+<div class="home">
+    <%=link_to 'もどる', root_path, class:"back-btn" %>
+</div>

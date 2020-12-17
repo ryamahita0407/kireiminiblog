@@ -1,6 +1,7 @@
 /* 背景画像 */
 .background{
   background-size: cover;
+  padding-bottom: 20px;
 }
 /* 背景画像end */
 /* devise */
@@ -123,7 +124,8 @@ label[for=user_remember_me]{
   text-align: center;
 }
 .image-compare img{
-  margin-left: 20px;
+  margin: 0 20px;
+
 }
 .before{
   margin-right: 100px;
@@ -191,3 +193,38 @@ textarea{
   display: block;
 }
 /* 投稿フォームend */
+/* 詳細 */
+.content-show{
+  margin-left : auto ; 
+  margin-right : auto ;
+  margin-top: 10px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  width: 60vw;
+  background-color: #FFFFEE;
+  padding-bottom: 10px;
+}
+.miniblog-nickname-info{
+  margin-left: 70px;
+  font-weight: bold;
+}
+.miniblog-title-info{
+  margin-top: 10px;
+  margin-left: 70px;
+  font-weight: bold;
+}
+.comments-space{
+  height:300px;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+.comments{
+  width: 60vw;
+  background-color: #dddddd;
+  border-radius: 5px;
+}
+.home{
+  text-align: center;
+}
+/* 詳細end */
