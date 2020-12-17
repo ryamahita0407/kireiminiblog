@@ -23,6 +23,14 @@ class MiniblogsController < ApplicationController
     @miniblog = Miniblog.find(params[:id])
   end
 
+  def destroy
+    @miniblog = Miniblog.find(params[:id])
+    if user_signed_in? && @miniblog.user_id == current_user.id
+      @miniblog.destroy
+      redirect_to root_path
+    end
+  end
+
   private
   def miniblog_params
     params.require(:miniblog).permit(:title, :text, images: []).merge(user_id: current_user.id)
