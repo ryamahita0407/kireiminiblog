@@ -228,3 +228,29 @@ textarea{
   text-align: center;
 }
 /* 詳細end */
+/* 編集フォーム */
+.edit-info form{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+.edit-info h3{
+  text-align: center;
+  font-size: 25px;
+}
+.img-upload img{
+  height: 300px;
+  width: 300px;
+}
+.miniblog-edit-title{
+  text-align: center;
+}
+.miniblog-edit-text{
+  text-align: center;
+}
+.image-info{
+  margin-top: 10px;
+}
+/* 編集フォームend */
