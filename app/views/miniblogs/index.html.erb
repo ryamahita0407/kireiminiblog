@@ -6,7 +6,7 @@
                     <%= button_to '詳細', miniblog_path(miniblog.id), class: "edit-btn", method: :get %>
                 </li>
                 <li class="miniblog-menu-item">
-                    <%= button_to '編集', root_path, class: "edit-btn" %>
+                    <%= button_to '編集', edit_miniblog_path(miniblog.id), class: "edit-btn", method: :get %>
                 </li>
                 <li class="miniblog-menu-item">
                     <%= button_to '削除', miniblog_path(miniblog.id), class: "delete-btn", method: :delete %>

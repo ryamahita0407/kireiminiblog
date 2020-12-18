@@ -1,5 +1,5 @@
- <div class="miniblog-new-form">
-    <%= form_with(model: miniblog, local: true) do |f| %>
+<div class="miniblog-new-form">
+  <%= form_with(model: miniblog, local: true) do |f| %>
     <div class="img-upload">
       <div class="click-upload">
         <%= f.file_field :images, id:"miniblog-image", name: 'miniblog[images][]' %>
@@ -17,5 +17,5 @@
       <%= f.submit "投稿する" ,class:"form-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
-  </div>
   <% end %>
+</div>

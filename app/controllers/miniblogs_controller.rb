@@ -31,6 +31,19 @@ class MiniblogsController < ApplicationController
     end
   end
 
+  def edit
+    @miniblog = Miniblog.find(params[:id])
+  end
+  def update
+    @miniblog = Miniblog.find(params[:id])
+    @miniblog.update(miniblog_params)
+    if @miniblog.valid?
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
+
   private
   def miniblog_params
     params.require(:miniblog).permit(:title, :text, images: []).merge(user_id: current_user.id)

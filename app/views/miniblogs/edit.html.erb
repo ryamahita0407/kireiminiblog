@@ -1,0 +1,30 @@
+<div class="edit-info">
+  <h3>編集する</h3>
+  <div class="edit-form">
+    <%= form_with(model: @miniblog, local: true) do |f| %>
+      <div class="img-upload">
+        <div class="click-upload">
+          <p>ファイルを編集する場合は再度アップロードしてください</p>
+          <%= f.file_field :images, id:"miniblog-image", name: 'miniblog[images][]' %>
+        </div>
+        <div id="image-list" class="image-list"></div>
+            <p class="image-info">現在アップロードされている画像</p>
+          <% @miniblog.images.each do |image| %>
+            <%= image_tag image, class: 'images' %>
+          <% end %>
+      </div>
+        <div id="image-list" class="image-list"></div>
+      </div>
+      <div class="miniblog-edit-title">
+        <%= f.text_area :title, class:"form-title", id:"title", placeholder:"タイトル(必須)", maxlength:"40" %>
+      </div>
+      <div class="miniblog-edit-text">
+        <%= f.text_area :text, class:"form-text", id:"miniblog-info", placeholder:"テキスト(必須)" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+      <div class="form-btn-contents">
+        <%= f.submit "投稿する" ,class:"form-btn" %>
+        <%=link_to 'もどる', root_path, class:"back-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>
