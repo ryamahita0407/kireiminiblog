@@ -2,6 +2,7 @@
 .background{
   background-size: cover;
   padding-bottom: 20px;
+  height: 150vh;
 }
 /* 背景画像end */
 /* devise */
@@ -79,9 +80,7 @@ label[for=user_remember_me]{
   /* headerend */
   /* miniblog */
 .content{
-  margin-left : auto ; 
-  margin-right : auto ;
-  margin-top: 10px;
+  margin: 10px auto;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   width: 60vw;
@@ -254,3 +253,14 @@ textarea{
   margin-top: 10px;
 }
 /* 編集フォームend */
+/* マイページ */
+.mypage{
+  text-align: center;
+  height: 30px;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.back-btn{
+  text-align: center;
+}
+/* マイページend */
