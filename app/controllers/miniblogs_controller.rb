@@ -21,6 +21,8 @@ class MiniblogsController < ApplicationController
 
   def show
     @miniblog = Miniblog.find(params[:id])
+    @comment = Comment.new
+    @comments = @miniblog.comments.includes(:user)
   end
 
   def destroy
