@@ -10,7 +10,6 @@ class MiniblogsController < ApplicationController
 
   def create
     @miniblog = Miniblog.new(miniblog_params)
-    binding.pry
     if @miniblog.valid?
       @miniblog.save
       redirect_to root_path
