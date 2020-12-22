@@ -1,7 +1,7 @@
 class MiniblogsController < ApplicationController
   before_action :move_to_index, except: [:index]
   def index
-    @miniblogs = Miniblog.includes(:user).order("created_at DESC").page(params[:page]).per(4)
+    @miniblogs = Miniblog.includes(:user).order("created_at DESC").page(params[:page]).per(3)
     @all_ranks = Miniblog.find(Like.group(:miniblog_id).order('count(miniblog_id) desc').limit(3).pluck(:miniblog_id))
   end
 
