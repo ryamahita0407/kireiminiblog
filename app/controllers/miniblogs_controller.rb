@@ -22,6 +22,7 @@ class MiniblogsController < ApplicationController
     @miniblog = Miniblog.find(params[:id])
     @comment = Comment.new
     @comments = @miniblog.comments.includes(:user)
+    @like = Like.new
   end
 
   def destroy
