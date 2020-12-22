@@ -289,3 +289,21 @@ textarea{
   height: 25px;
 }
 /* コメント機能end */
+/* いいね機能 */
+.like-count{
+  text-align: center;
+}
+.like-btn{
+  text-align: center;
+}
+.unlike{
+  color: #f9e900;
+}
+.like{
+  color: #dddddd;
+}
+.miniblog-like{
+  margin-top: 10px;
+  margin-left: 70px;
+}
+/* いいね機能end */

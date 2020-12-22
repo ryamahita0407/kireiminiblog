@@ -22,6 +22,20 @@
       <p>テキスト</p>
       <%= @miniblog.text %>
     </div>
+    <h4 class="like-count">いいね件数: <%= @miniblog.likes.count %></h4>
+    <% if current_user.already_liked?(@miniblog) %>
+        <%= link_to(miniblog_like_path(@miniblog), method: :delete) do %>
+            <div class="like-btn">
+                <span class="fas fa-star fa-2x unlike"></span>
+            </div>
+        <% end %>
+    <% else %>
+        <%= link_to(miniblog_likes_path(@miniblog), method: :post) do %>
+            <div class="like-btn">
+                <span class="fas fa-star fa-2x like"></span>
+            </div>
+        <% end %>
+    <% end %>
 </div>
 <div class = "show-comments">
     <div class="comments-space">

@@ -13,8 +13,9 @@
                     </li>
                 <% end %>
             </ul>
-        <p class="miniblog-nickname"><%= miniblog.user.nickname %></p>
-        <p class="miniblog-title"><%= miniblog.title %></p>
+        <p class="miniblog-nickname">投稿者：<%= miniblog.user.nickname %></p>
+        <p class="miniblog-title">タイトル：<%= miniblog.title %></p>
+        <p class="miniblog-like">いいね数：<%= miniblog.liked_users.count %></p>
         <div class="image-compare">
             <% miniblog.images.each do |image| %>
                 <%= image_tag image.variant(resize: "170x170"), class: 'images' %>
