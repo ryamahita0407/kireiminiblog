@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_18_100242) do
+ActiveRecord::Schema.define(version: 2020_12_22_052600) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 2020_12_18_100242) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "miniblog_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["miniblog_id"], name: "index_likes_on_miniblog_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "miniblogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "text", null: false
@@ -68,5 +77,7 @@ ActiveRecord::Schema.define(version: 2020_12_18_100242) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "miniblogs"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "miniblogs"
+  add_foreign_key "likes", "users"
   add_foreign_key "miniblogs", "users"
 end
