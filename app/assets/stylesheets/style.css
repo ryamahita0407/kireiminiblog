@@ -79,6 +79,10 @@ label[for=user_remember_me]{
   }
   /* headerend */
   /* miniblog */
+.index{
+  display: flex;
+  justify-content: center;
+}
 .content{
   margin: 10px auto;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
@@ -307,3 +311,34 @@ textarea{
   margin-left: 70px;
 }
 /* いいね機能end */
+/* ランキング機能 */
+.ranking-space{
+  background-color: #dddddd;
+  margin-top: 10px;
+  margin-left: 20px;
+  padding: 10px 10px;
+  width: 25vw;
+}
+.ranking-space h4{
+  text-align: center;
+  font-weight: bold;
+}
+.ranking-miniblog{
+  background-color: #FFFFEE;
+  margin: 10px 10px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding-bottom: 10px;
+}
+.button_to{
+  text-align: right;
+}
+.ranking-edit-btn{
+  border-radius: 5px;
+  border: 1px solid #808080;
+  width: 50px;
+  height: 25px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+/* ランキング機能end */
