@@ -1,6 +1,12 @@
 class CommentsController < ApplicationController
   def create
-    Comment.create(comment_params)
+    @comment = Comment.new(comment_params)
+    if @comment.valid?
+      @comment.save
+      redirect_to miniblog_path(params[:miniblog_id])
+    else
+      redirect_to miniblog_path(params[:miniblog_id])
+    end
   end
 
   private
