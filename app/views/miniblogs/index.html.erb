@@ -1,18 +1,20 @@
-<% @miniblogs.each do |miniblog| %>
-    <div class="content">
-            <ul class="miniblog-menu">
-                <li class="miniblog-menu-item">
-                    <%= button_to '詳細', miniblog_path(miniblog.id), class: "edit-btn", method: :get %>
-                </li>
-                <% if user_signed_in? && current_user.id == miniblog.user_id %>
-                    <li class="miniblog-menu-item">
-                        <%= button_to '編集', edit_miniblog_path(miniblog.id), class: "edit-btn", method: :get %>
-                    </li>
-                    <li class="miniblog-menu-item">
-                        <%= button_to '削除', miniblog_path(miniblog.id), class: "delete-btn", method: :delete %>
-                    </li>
-                <% end %>
-            </ul>
+<div class="index">
+  <div class="main">
+    <% @miniblogs.each do |miniblog| %>
+      <div class="content">
+        <ul class="miniblog-menu">
+          <li class="miniblog-menu-item">
+              <%= button_to '詳細', miniblog_path(miniblog.id), class: "edit-btn", method: :get %>
+          </li>
+          <% if user_signed_in? && current_user.id == miniblog.user_id %>
+            <li class="miniblog-menu-item">
+                <%= button_to '編集', edit_miniblog_path(miniblog.id), class: "edit-btn", method: :get %>
+            </li>
+            <li class="miniblog-menu-item">
+                <%= button_to '削除', miniblog_path(miniblog.id), class: "delete-btn", method: :delete %>
+            </li>
+          <% end %>
+        </ul>
         <p class="miniblog-nickname">投稿者：<%= miniblog.user.nickname %></p>
         <p class="miniblog-title">タイトル：<%= miniblog.title %></p>
         <p class="miniblog-like">いいね数：<%= miniblog.liked_users.count %></p>
@@ -21,7 +23,27 @@
                 <%= image_tag image.variant(resize: "170x170"), class: 'images' %>
             <% end %>
         </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="ranking">
+    <div class="ranking-space">
+        <h4>いいねランキング</h4>
+        <% @all_ranks.each do |miniblog| %>
+            <div class="ranking-miniblog">
+                <%= button_to '詳細', miniblog_path(miniblog.id), class: "ranking-edit-btn", method: :get %>
+                <p class="miniblog-nickname">投稿者：<%= miniblog.user.nickname %></p>
+                <p class="miniblog-title">タイトル：<%= miniblog.title %></p>
+                <p class="miniblog-like">いいね数：<%= miniblog.liked_users.count %></p>
+                <div class="image-compare">
+                  <% miniblog.images.each do |image| %>
+                    <%= image_tag image.variant(resize: "80x80"), class: 'images' %>
+                  <% end %>
+                </div>
+            </div>
+        <% end %>
     </div>
-<% end %>
-<%= paginate(@miniblogs) %>
+  </div>
+  <%= paginate(@miniblogs) %>
+</div>
 
