@@ -5,4 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :miniblogs
   has_many :comments
+  has_many :likes, dependent: :destroy
+  has_many :liked_miniblogs, through: :likes, source: :miniblog
+
+  def already_liked?(miniblog)
+    self.likes.exists?(miniblog_id: miniblog.id)
+  end
 end
