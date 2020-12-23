@@ -2,7 +2,6 @@
 .background{
   background-size: cover;
   padding-bottom: 20px;
-  height: 150vh;
 }
 /* 背景画像end */
 /* devise */
@@ -19,6 +18,7 @@
 .container h2{
   text-align: center;
   font-size: 30px;
+  margin-top: 50px;
 }
 .field{
   height: 86px;
@@ -57,9 +57,10 @@ label[for=user_remember_me]{
 }
 .title {
   width: 300px;
-  height: 56px;
+  height: 60px;
   margin: 0;
   font-size: 45px;
+  text-align: center;
 }
 .user_link {
   color: #0FF;
@@ -67,6 +68,9 @@ label[for=user_remember_me]{
   text-align: right;
   margin: auto;
   align-items: right;
+}
+.user_link a{
+  text-decoration: none;
 }
 .header-menu{
   color: #0FF;
@@ -82,6 +86,7 @@ label[for=user_remember_me]{
 .index{
   display: flex;
   justify-content: center;
+  height: 160vh;
 }
 .content{
   margin: 10px auto;
@@ -158,32 +163,48 @@ label[for=user_remember_me]{
 /* 投稿フォーム */
 h3{
   text-align: center;
-  font-size: 20px;
+  font-size: 25px;
+}
+.image-list{
+  display: flex;
 }
 .image-list img {
-  height: 100px;
-  width: 200px;
+  height: 80px;
+  width: 150px;
+}
+.image-element{
+  height: 350px;
+  width: 400px;
 }
 textarea{
   width: 500px;
-  height:300px;
+  height:250px;
   border: 1px solid #808080;
   border-radius: 5px;
   font-size: 16px;
   }
 .miniblog-new{
-  height: 100vh;
+  height: 130vh;
+  background-size: cover;
 }
 .miniblog-new-form{
   display: flex;
   justify-content: center;
 }
+.input-form{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .form-title{
+  display: block;
   height: 30px;
   margin-top: 10px;
   }
 .form-text{
-  margin-top: 10px;
+  display: block;
+  margin: 10px 0;
+  
   }
 .form-btn-contents{
   text-align: center;
@@ -211,10 +232,20 @@ textarea{
   margin-left: 70px;
   font-weight: bold;
 }
+.miniblog-nickname-show{
+  margin-left: 70px;
+}
 .miniblog-title-info{
   margin-top: 10px;
   margin-left: 70px;
   font-weight: bold;
+}
+.miniblog-title-show{
+  margin-left: 70px;
+}
+.miniblog-text-info{
+  margin-top: 10px;
+  font-weight: bold; 
 }
 .comments-space{
   height:300px;
@@ -224,6 +255,10 @@ textarea{
 }
 .home{
   text-align: center;
+}
+.back-btn{
+  text-decoration: none;
+  font-size: 20px;
 }
 /* 詳細end */
 /* 編集フォーム */
@@ -253,6 +288,9 @@ textarea{
 }
 /* 編集フォームend */
 /* マイページ */
+.mypage-content{
+  height: 160vh;
+}
 .mypage{
   text-align: center;
   height: 30px;
@@ -284,7 +322,8 @@ textarea{
   margin-left: 170px;
 }
 .comments form textarea{
-  height: 60px;
+  height: 40px;
+  width: 40vw;
 }
 .comments form input[type=submit] {
   border-radius: 5px;

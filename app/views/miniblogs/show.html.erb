@@ -10,30 +10,32 @@
     </ul>
   <% end %>
   <p class="miniblog-nickname-info">投稿者</p>
-  <p class="miniblog-nickname"><%= @miniblog.user.nickname %></p>
+  <p class="miniblog-nickname-show"><%= @miniblog.user.nickname %></p>
   <p class="miniblog-title-info">タイトル</p>
-  <p class="miniblog-title"><%= @miniblog.title %></p>
+  <p class="miniblog-title-show"><%= @miniblog.title %></p>
   <div class="image-compare">
     <% @miniblog.images.each do |image| %>
       <%= image_tag image.variant(resize: "400x400"), class: 'images' %>
     <% end %>
   </div>
   <div class="miniblog-text">
-    <p>テキスト</p>
+    <p class="miniblog-text-info">テキスト</p>
     <%= @miniblog.text %>
   </div>
   <h4 class="like-count">いいね件数: <%= @miniblog.likes.count %></h4>
-  <% if current_user.already_liked?(@miniblog) %>
-    <%= link_to(miniblog_like_path(@miniblog), method: :delete) do %>
-      <div class="like-btn">
-        <span class="fas fa-star fa-2x unlike"></span>
-      </div>
-    <% end %>
-  <% else %>
-    <%= link_to(miniblog_likes_path(@miniblog), method: :post) do %>
-      <div class="like-btn">
-        <span class="fas fa-star fa-2x like"></span>
-      </div>
+  <% if user_signed_in? %>
+    <% if current_user.already_liked?(@miniblog) %>
+      <%= link_to(miniblog_like_path(@miniblog), method: :delete) do %>
+        <div class="like-btn">
+          <span class="fas fa-star fa-2x unlike"></span>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to(miniblog_likes_path(@miniblog), method: :post) do %>
+        <div class="like-btn">
+          <span class="fas fa-star fa-2x like"></span>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>
@@ -63,5 +65,5 @@
   </div>
 </div>
 <div class="home">
-  <%=link_to 'もどる', root_path, class:"back-btn" %>
+  <%=link_to '投稿一覧へ', root_path, class:"back-btn" %>
 </div>
