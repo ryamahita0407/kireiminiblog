@@ -4,13 +4,14 @@
       <div class="click-upload">
         <%= f.file_field :images, id:"miniblog-image", name: 'miniblog[images][]' %>
       </div>
-      <div id="image-list" class="image-list"></div>
+      <div id="image-list" class="image-list">
         <% miniblog.images.each do |image| %>
           <%= image_tag image, class: 'images' %>
         <% end %>
+      </div>
     </div>
-    <%= f.text_area :title, class:"form-title", id:"title", placeholder:"タイトル(必須)", maxlength:"40" %>
-    <div class="items-explain">
+    <div class="input-form">
+      <%= f.text_area :title, class:"form-title", id:"title", placeholder:"タイトル(必須)", maxlength:"40" %>
       <%= f.text_area :text, class:"form-text", id:"miniblog-info", placeholder:"テキスト(必須)" ,rows:"7" ,maxlength:"1000" %>
     </div>
     <div class="form-btn-contents">

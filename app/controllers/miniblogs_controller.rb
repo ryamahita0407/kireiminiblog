@@ -1,7 +1,9 @@
 class MiniblogsController < ApplicationController
-  before_action :move_to_index, except: [:index]
+  before_action :move_to_index, except: [:index, :show]
+  before_action :set_miniblog, only: [:show, :destroy, :edit, :update]
+
   def index
-    @miniblogs = Miniblog.includes(:user).order("created_at DESC").page(params[:page]).per(4)
+    @miniblogs = Miniblog.includes(:user).order("created_at DESC").page(params[:page]).per(3)
     @all_ranks = Miniblog.find(Like.group(:miniblog_id).order('count(miniblog_id) desc').limit(3).pluck(:miniblog_id))
   end
 
@@ -20,14 +22,12 @@ class MiniblogsController < ApplicationController
   end
 
   def show
-    @miniblog = Miniblog.find(params[:id])
     @comment = Comment.new
     @comments = @miniblog.comments.includes(:user)
     @like = Like.new
   end
 
   def destroy
-    @miniblog = Miniblog.find(params[:id])
     if user_signed_in? && @miniblog.user_id == current_user.id
       @miniblog.destroy
       redirect_to root_path
@@ -35,16 +35,22 @@ class MiniblogsController < ApplicationController
   end
 
   def edit
-    @miniblog = Miniblog.find(params[:id])
+    if user_signed_in? && @miniblog.user_id == current_user.id
+    else
+      redirect_to root_path
+    end 
   end
   def update
-    @miniblog = Miniblog.find(params[:id])
-    @miniblog.update(miniblog_params)
-    if @miniblog.valid?
-      redirect_to root_path
+    if user_signed_in? && @miniblog.user_id == current_user.id
+      @miniblog.update(miniblog_params)
+      if @miniblog.valid?
+        redirect_to root_path
+      else
+        render 'edit'
+      end
     else
-      render 'edit'
-    end
+      redirect_to root_path
+    end 
   end
 
   private
@@ -56,5 +62,9 @@ class MiniblogsController < ApplicationController
     unless user_signed_in?
       redirect_to action: :index
     end
+  end
+
+  def set_miniblog
+    @miniblog = Miniblog.find(params[:id])
   end
 end

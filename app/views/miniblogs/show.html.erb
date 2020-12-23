@@ -1,67 +1,69 @@
 <div class="content-show">
-    <% if user_signed_in? && current_user.id == @miniblog.user_id %>
-        <ul class="miniblog-menu">
-            <li class="miniblog-menu-item">
-                <%= button_to '編集', edit_miniblog_path(@miniblog.id), class: "edit-btn", method: :get %>
-            </li>
-            <li class="miniblog-menu-item">
-                <%= button_to '削除', miniblog_path(@miniblog.id), class: "delete-btn", method: :delete %>
-            </li>
-        </ul>
+  <% if user_signed_in? && current_user.id == @miniblog.user_id %>
+    <ul class="miniblog-menu">
+      <li class="miniblog-menu-item">
+        <%= button_to '編集', edit_miniblog_path(@miniblog.id), class: "edit-btn", method: :get %>
+      </li>
+      <li class="miniblog-menu-item">
+        <%= button_to '削除', miniblog_path(@miniblog.id), class: "delete-btn", method: :delete %>
+      </li>
+    </ul>
+  <% end %>
+  <p class="miniblog-nickname-info">投稿者</p>
+  <p class="miniblog-nickname-show"><%= @miniblog.user.nickname %></p>
+  <p class="miniblog-title-info">タイトル</p>
+  <p class="miniblog-title-show"><%= @miniblog.title %></p>
+  <div class="image-compare">
+    <% @miniblog.images.each do |image| %>
+      <%= image_tag image.variant(resize: "400x400"), class: 'images' %>
     <% end %>
-    <p class="miniblog-nickname-info">投稿者</p>
-    <p class="miniblog-nickname"><%= @miniblog.user.nickname %></p>
-    <p class="miniblog-title-info">タイトル</p>
-    <p class="miniblog-title"><%= @miniblog.title %></p>
-    <div class="image-compare">
-        <% @miniblog.images.each do |image| %>
-            <%= image_tag image.variant(resize: "400x400"), class: 'images' %>
-        <% end %>
-    </div>
-    <div class="miniblog-text">
-      <p>テキスト</p>
-      <%= @miniblog.text %>
-    </div>
-    <h4 class="like-count">いいね件数: <%= @miniblog.likes.count %></h4>
+  </div>
+  <div class="miniblog-text">
+    <p class="miniblog-text-info">テキスト</p>
+    <%= @miniblog.text %>
+  </div>
+  <h4 class="like-count">いいね件数: <%= @miniblog.likes.count %></h4>
+  <% if user_signed_in? %>
     <% if current_user.already_liked?(@miniblog) %>
-        <%= link_to(miniblog_like_path(@miniblog), method: :delete) do %>
-            <div class="like-btn">
-                <span class="fas fa-star fa-2x unlike"></span>
-            </div>
-        <% end %>
+      <%= link_to(miniblog_like_path(@miniblog), method: :delete) do %>
+        <div class="like-btn">
+          <span class="fas fa-star fa-2x unlike"></span>
+        </div>
+      <% end %>
     <% else %>
-        <%= link_to(miniblog_likes_path(@miniblog), method: :post) do %>
-            <div class="like-btn">
-                <span class="fas fa-star fa-2x like"></span>
-            </div>
-        <% end %>
+      <%= link_to(miniblog_likes_path(@miniblog), method: :post) do %>
+        <div class="like-btn">
+          <span class="fas fa-star fa-2x like"></span>
+        </div>
+      <% end %>
     <% end %>
+  <% end %>
 </div>
 <div class = "show-comments">
-    <div class="comments-space">
-            <div class="comments-list">
-        <h4>＜コメント一覧＞</h4>
+  <div class="comments-space">
+    <div class="comments-list">
+      <h4>＜コメント一覧＞</h4>
         <% if @comments %>
-            <% @comments.each do |comment| %>
-            <p>
-                <strong><%= link_to comment.user.nickname, user_path(comment.user_id) %>：</strong>
-                <%= comment.text %>
-            </p>
-            <% end %>
+          <% @comments.each do |comment| %>
+          <p>
+            <strong><%= link_to comment.user.nickname, user_path(comment.user_id) %>：</strong>
+            <%= comment.text %>
+          </p>
+          <% end %>
         <% end %>
-        </div>
-        <div class="comments">
-            <% if user_signed_in? %>
-                <%= form_with(model: [@miniblog, @comment], local: true) do |form| %>
-                <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-                <%= form.submit "SEND" %>
-                <% end %>
-            <% else %>
-                <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-            <% end %>
-        </div>
     </div>
+    <div class="comments">
+      <% if user_signed_in? %>
+        <%= form_with(model: [@miniblog, @comment], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= form.submit "SEND" %>
+        <% end %>
+      <% else %>
+        <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+      <% end %>
+    </div>
+  </div>
 </div>
 <div class="home">
-    <%=link_to 'もどる', root_path, class:"back-btn" %>
+  <%=link_to '投稿一覧へ', root_path, class:"back-btn" %>
 </div>
