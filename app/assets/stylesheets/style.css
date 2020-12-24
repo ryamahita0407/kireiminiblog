@@ -54,12 +54,14 @@ label[for=user_remember_me]{
   display: flex;
   justify-content: space-between;
   background-color: #0F0;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
 }
 .title {
   width: 300px;
   height: 60px;
-  margin: 0;
+  margin-top: 10px;
   font-size: 45px;
+  font-weight: bold;
   text-align: center;
 }
 .user_link {
@@ -290,6 +292,7 @@ textarea{
 /* マイページ */
 .mypage-content{
   height: 160vh;
+  margin-top: 10px;
 }
 .mypage{
   text-align: center;
@@ -316,10 +319,13 @@ textarea{
   width: 60vw;
 }
 .comments-list{
-  margin-left: 170px;
+  margin-left: 150px;
+}
+.comments-list h4{
+  margin-bottom: 10px;
 }
 .comments{
-  margin-left: 170px;
+  margin-left: 150px;
 }
 .comments form textarea{
   height: 40px;
