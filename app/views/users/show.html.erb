@@ -1,6 +1,6 @@
 <div class="mypage-content">
+  <h1 class="mypage"><%= current_user.nickname %>さんのマイページ</h1>
   <% @miniblogs.each do |miniblog| %>
-    <h1 class="mypage"><%= miniblog.user.nickname %>さんのマイページ</h1>
     <div class="content">
       <% if user_signed_in? && current_user.id == miniblog.user_id %>
         <ul class="miniblog-menu">
@@ -23,7 +23,7 @@
         <% end %>
     </div>
     </div>
-    <%=link_to '一覧へもどる', root_path, class:"back-btn" %>
   <% end %>
+    <%=link_to '一覧へもどる', root_path, class:"back-btn" %>
   <%= paginate(@miniblogs) %>
 </div>
