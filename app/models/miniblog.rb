@@ -8,4 +8,13 @@ class Miniblog < ApplicationRecord
   with_options presence: true do
     validates :title, :text, :images
   end
+
+  validate :validate_images
+
+  private
+  def validate_images
+    return if images.count == 2
+  
+    errors.add(:images, 'You can upload 2 images')
+  end
 end
