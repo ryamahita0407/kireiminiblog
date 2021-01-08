@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_miniblogs, through: :likes, source: :miniblog
 
+  validates :nickname, presence: true
   def already_liked?(miniblog)
     self.likes.exists?(miniblog_id: miniblog.id)
   end
