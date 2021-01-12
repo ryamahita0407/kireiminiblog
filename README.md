@@ -108,7 +108,7 @@ belongs_to :miniblog
 
 
 # ER図
- https://i.gyazo.com/cc800db1cc01558d8cb4f77b6b42b473.png
+[![Image from Gyazo](https://i.gyazo.com/4e0ca5c1e4a9af41bfba2cd8233f2f3b.png)](https://gyazo.com/4e0ca5c1e4a9af41bfba2cd8233f2f3b)
 
 # 🚜 開発環境
 ### Ruby version
