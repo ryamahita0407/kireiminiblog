@@ -73,6 +73,7 @@ label[for=user_remember_me]{
 }
 .user_link a{
   text-decoration: none;
+  font-weight: bold;
 }
 .header-menu{
   color: #0FF;
@@ -82,6 +83,7 @@ label[for=user_remember_me]{
   }
 .header-menu a{
   text-decoration: none;
+  font-weight: bold;
 }
 .post{
   padding: 5px;
