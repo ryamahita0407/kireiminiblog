@@ -80,6 +80,9 @@ label[for=user_remember_me]{
   text-align: right;
   margin: auto;
   }
+.header-menu a{
+  text-decoration: none;
+}
 .post{
   padding: 5px;
   }
