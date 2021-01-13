@@ -1,5 +1,6 @@
 <div class="miniblog-new-form">
   <%= form_with(model: miniblog, local: true) do |f| %>
+    <p>※掃除の前後がわかる画像を2枚選択してください</p>
     <div class="img-upload">
       <div class="click-upload">
         <%= f.file_field :images, id:"miniblog-image", name: 'miniblog[images][]' %>
