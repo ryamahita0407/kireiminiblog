@@ -8,7 +8,7 @@
 ## https://kireiminiblog.herokuapp.com/
 
 ![86d59fb9eb0f1bf3940e74d09261361b](https://user-images.githubusercontent.com/73686164/105003157-a7ee0700-5a75-11eb-96e0-40a814f29d09.gif)
-![86d59fb9eb0f1bf3940e74d09261361b (1)](https://user-images.githubusercontent.com/73686164/105003222-bb996d80-5a75-11eb-97eb-e992c12c6552.gif)
+![e537c3a0f456a7fdca5920014ef983b8](https://user-images.githubusercontent.com/73686164/105003639-41b5b400-5a76-11eb-8704-3ca209c86d12.gif)
 
 # テスト用アカウント
 - email: test@gmail.com
