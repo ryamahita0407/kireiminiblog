@@ -6,9 +6,10 @@
 
 # 🌐 App URL
 ## https://kireiminiblog.herokuapp.com/
-[![Image from Gyazo](https://i.gyazo.com/86d59fb9eb0f1bf3940e74d09261361b.gif)](https://gyazo.com/86d59fb9eb0f1bf3940e74d09261361b)
 
-[![Image from Gyazo](https://i.gyazo.com/e537c3a0f456a7fdca5920014ef983b8.gif)](https://gyazo.com/e537c3a0f456a7fdca5920014ef983b8)
+![demo](https://gyazo.com/86d59fb9eb0f1bf3940e74d09261361b/raw)
+
+![demo](https://gyazo.com/e537c3a0f456a7fdca5920014ef983b8/raw)
 
 # テスト用アカウント
 - email: test@gmail.com
